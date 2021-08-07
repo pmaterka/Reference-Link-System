@@ -10,12 +10,14 @@ class CreateProductComponent extends Component{
         this.state = {
             id: this.props.match.params.id,
             name: '',
-            price: ' ',
-            available: ' '
+            description: ' ',
+            quantity: ' ',
+            price: ' '
         }
         this.changeNameHandler = this.changeNameHandler.bind(this);
-        this.changePriceHandler =this.changePriceHandler.bind(this);
-        this.changeAvailableHandler = this.changeAvailableHandler.bind(this);
+        this.changeDescriptionHandler = this.changeDescriptionHandel.bind(this);
+        this.changeQuantityHandler = this.changeQuantityHandler.bind(this);
+        this.changePriceHandler=this.changePriceHandler.bind(this);
         this.saveOrUpdateProduct = this.saveOrUpdateProduct.bind(this);
     }
 
@@ -29,15 +31,17 @@ class CreateProductComponent extends Component{
             ProductService.getProductById(this.state.id).then( (res) =>{
                 let product = res.data;
                 this.setState({name: product.name,
-                    price: product.price,
-                    available: product.available.toString,
+                    description: product.description,
+                    quantity: product.quantity,
+                    price: product.price
                 });
             });
         }
     }
     saveOrUpdateProduct = (e) => {
         e.preventDefault();
-        let product = {name: this.state.name, price: this.state.price, available: this.state.available};
+        let product = {name: this.state.name, description: this.state.description,
+            quantity: this.state.quantity, price: this.state.price };
         console.log('product => ' + JSON.stringify(product));
 
 
@@ -55,14 +59,16 @@ class CreateProductComponent extends Component{
     changeNameHandler= (event) => {
         this.setState({name: event.target.value});
     }
-
+    changeDescriptionHandler= (event) => {
+        this.setState({description: event.target.value});
+    }
+    changeQuantityHandler= (event) => {
+        this.setState({quantity: event.target.value});
+    }
     changePriceHandler= (event) => {
         this.setState({price: event.target.value});
     }
 
-    changeAvailableHandler= (event) => {
-        this.setState({available: event.target.value});
-    }
 
     cancel(){
         this.props.history.push('/');
@@ -88,24 +94,27 @@ class CreateProductComponent extends Component{
                             <div className = "card-body">
                                 <form>
                                     <div className = "form-group">
-                                        <label> Product Name: </label>
+                                        <label> Nazwa: </label>
                                         <input placeholder="Product Name" name="name" className="form-control"
                                                value={this.state.name} onChange={this.changeNameHandler}/>
                                     </div>
                                     <div className = "form-group">
-                                        <label> Price: </label>
-                                        <input placeholder="Product Price" price="price" className="form-control"
-                                               value={this.state.price} onChange={this.changePriceHandler}/>
+                                        <label> Opis: </label>
+                                        <input placeholder="opis" name="name" className="form-control"
+                                               value={this.state.description} onChange={this.changeDescriptionHandler}/>
                                     </div>
                                     <div className = "form-group">
-                                        <label> Available</label>
-                                        <input placeholder="Available" available="available" className="form-control"
-                                               value={this.state.available} onChange={this.changeAvailableHandler}/>
+                                        <label> Ilość: </label>
+                                        <input placeholder="ilość" name="name" className="form-control"
+                                               value={this.state.quantity} onChange={this.changeQuantityHandler}/>
                                     </div>
-
-
-                                    <button className="btn btn-success" onClick={this.saveOrUpdateProduct}>Save</button>
-                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
+                                    <div className = "form-group">
+                                        <label> Cena: </label>
+                                        <input placeholder="cena" name="name" className="form-control"
+                                               value={this.state.price} onChange={this.changePriceHandler}/>
+                                    </div>
+                                    <button className="btn btn-success" onClick={this.saveOrUpdateProduct}>Zapisz</button>
+                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Anuluj</button>
                                 </form>
                             </div>
                         </div>

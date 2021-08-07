@@ -25,16 +25,20 @@ class ViewProductComponent extends Component {
                     <h3 className = "text-center"> View Product Details</h3>
                     <div className = "card-body">
                         <div className = "row">
-                            <label> Product Name: </label>
+                            <label> Nazwa: </label>
                             <div> { this.state.product.name }</div>
                         </div>
                         <div className = "row">
-                            <label> Product Price: </label>
-                            <div> { this.state.product.price }</div>
+                            <label> Opis: </label>
+                            <div> { this.state.product.description }</div>
                         </div>
                         <div className = "row">
-                            <label> Availability: </label>
-                            <div> { String(this.state.product.available) }</div>
+                            <label> Ilość: </label>
+                            <div> { String(this.state.product.quantity) }</div>
+                        </div>
+                        <div className = "row">
+                            <label> Cena: </label>
+                            <div> { String(this.state.product.price) }</div>
                         </div>
                     </div>
 

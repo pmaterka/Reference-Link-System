@@ -37,14 +37,12 @@ public class OfferController {
         beforeUpdate.setOfferArea(offer.getOfferArea());
         beforeUpdate.setOfferCategory(offer.getOfferCategory());
         beforeUpdate.setOfferCost(offer.getOfferCost());
-        beforeUpdate.setOfferDescription(offer.getOfferDescription());
-        beforeUpdate.setOfferNum(offer.getOfferNum());
-        beforeUpdate.setOfferPayment(offer.getOfferPayment());
+        beforeUpdate.setDescription(offer.getDescription());
         beforeUpdate.setOfferReason(offer.getOfferReason());
         beforeUpdate.setOfferrorGroup(offer.getOfferrorGroup());
         beforeUpdate.setOptionNeedOffer(offer.getOptionNeedOffer());
         beforeUpdate.setProductList(offer.getProductList());
-        beforeUpdate.setUrgent(offer.isUrgent());
+        beforeUpdate.setIsUrgent(offer.getIsUrgent());
         Offer afterUpdate = offerService.save(beforeUpdate);
         return ResponseEntity.ok(afterUpdate);
     }

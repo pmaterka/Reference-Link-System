@@ -49,7 +49,6 @@ class GetAllOffers extends Component{
                     <button className="btn btn-outline-primary" onClick={this.addOffer}>
                         Dodaj usługę
                     </button>
-
                 </div>
                 <div className="a row">
                     <table className="table table-striped table-bordered">
@@ -58,14 +57,7 @@ class GetAllOffers extends Component{
                             <th> Nazwa </th>
                             <th> Wycena</th>
                             <th> Pilne?</th>
-                            <th> Kategoria</th>
-                            <th> Grupa</th>
-                            <th> Numer</th>
                             <th> Opis</th>
-                            <th> Opcja </th>
-                            <th> Obszar</th>
-                            <th> Dlaczego?</th>
-                            <th> Płatność</th>
                             <th> Opcja </th>
                             <th> Działania </th>
                         </tr>
@@ -77,18 +69,35 @@ class GetAllOffers extends Component{
                                 offer =>
                                     <tr key={ offer.id }>
                                         <td>{ offer.name }</td>
-                                        <td>{ offer.price }</td>
-                                        <td>{ offer.available.toString() }</td>
+                                        <td>{ offer.offerCost }</td>
+                                        <td>{ offer.isUrgent.toString() }</td>
+                                        <td>{ offer.description }</td>
+                                        <td>{ offer.optionNeedOffer }</td>
                                         <td>
-                                            <button onClick={()=> this.editOffer(offer.id)}
+                                            <button style={{marginLeft: "10px"}} onClick={()=> this.editOffer(offer.id)}
                                             className="btn btn-info">
-                                                Update
+                                                Edytuj
                                             </button>
+
                                             <button style={{marginLeft: "10px"}} onClick={ () =>
-                                                this.deleteOffer(offer.id)} className="btn btn-danger">Delete </button>
-                                            <button style={{marginLeft: "10px"}} onClick={ () =>
-                                                this.viewOffer(offer.id)} className="btn btn-info">View </button>
+                                                this.viewOffer(offer.id)} className="btn btn-info">Szczegóły oferty </button>
+
+
+                                            <button style={{marginLeft: "12px"}} onClick={ () =>
+                                                this.deleteOffer(offer.id)} className="btn btn-danger">Usuń </button>
+
+                                            <div id="fb-root"></div>
+                                            <script async defer crossOrigin="anonymous"
+                                                    src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v11.0"
+                                                    nonce="H0bi8Yoj"></script>
+
+                                            <div className="fb-share-button" data-href="https://www.google.pl/"
+                                                 data-layout="button_count" data-size="small"><a
+                                                target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.google.pl%2F&amp;src=sdkpreparse"
+                                                className="fb-xfbml-parse-ignore">Udostępnij na Facebook'u</a>
+                                            </div>
                                         </td>
+
 
                                     </tr>
                             )

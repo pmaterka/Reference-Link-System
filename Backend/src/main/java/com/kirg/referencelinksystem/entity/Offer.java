@@ -16,13 +16,13 @@ public class Offer {
 
     private String name;
 
+    private BigDecimal offerCost;
+
+    private boolean isUrgent;
+
     private OfferrorGroup offerrorGroup;
 
-    private long offerNum;
-
-    private String offerDescription;
-
-    private BigDecimal offerCost;
+    private String description;
 
     private OptionNeedOffer optionNeedOffer;
 
@@ -31,10 +31,6 @@ public class Offer {
     private OfferArea offerArea;
 
     private OfferReason offerReason;
-
-    private OfferPayment offerPayment;
-
-    boolean isUrgent;
 
     @OneToMany
     private List<Product> productList;
@@ -53,20 +49,12 @@ public class Offer {
         this.offerrorGroup = offerrorGroup;
     }
 
-    public long getOfferNum() {
-        return offerNum;
+    public String getDescription() {
+        return description;
     }
 
-    public void setOfferNum(long offerNum) {
-        this.offerNum = offerNum;
-    }
-
-    public String getOfferDescription() {
-        return offerDescription;
-    }
-
-    public void setOfferDescription(String offerDescription) {
-        this.offerDescription = offerDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public BigDecimal getOfferCost() {
@@ -109,20 +97,13 @@ public class Offer {
         this.offerReason = offerReason;
     }
 
-    public OfferPayment getOfferPayment() {
-        return offerPayment;
-    }
 
-    public void setOfferPayment(OfferPayment offerPayment) {
-        this.offerPayment = offerPayment;
-    }
-
-    public boolean isUrgent() {
+    public boolean getIsUrgent() {
         return isUrgent;
     }
 
-    public void setUrgent(boolean urgent) {
-        isUrgent = urgent;
+    public void setIsUrgent(boolean isUrgent) {
+        this.isUrgent = isUrgent;
     }
 
     public List<Product> getProductList() {

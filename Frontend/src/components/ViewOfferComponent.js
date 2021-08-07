@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import OfferService from '../services/OfferService'
 
 class ViewOfferComponent extends Component {
+
     constructor(props) {
         super(props)
-
         this.state = {
             id: this.props.match.params.id,
-            offer: {}
+            offer: {},
+
         }
     }
 
@@ -25,17 +26,45 @@ class ViewOfferComponent extends Component {
                     <h3 className = "text-center"> Szczegóły usługi</h3>
                     <div className = "card-body">
                         <div className = "row">
-                            <label> Offer Name: </label>
-                            <div> { this.state.offer.name }</div>
+                            <label> Nazwa: </label>
+                            <div> &nbsp;{ this.state.offer.name }</div>
                         </div>
                         <div className = "row">
-                            <label> Offer Price: </label>
-                            <div> { this.state.offer.price }</div>
+                            <label> Cena: </label>
+                            <div> &nbsp;{ String(this.state.offer.offerCost) }</div>
                         </div>
                         <div className = "row">
-                            <label> Availability: </label>
-                            <div> { String(this.state.offer.available) }</div>
+                            <label> Czy pilne?: </label>
+                            <div> &nbsp;{this.state.offer.isUrgent ? "Pilne" : "Niepilne"}
+                            </div>
                         </div>
+                        <div className = "row">
+                            <label> OfferorGroup: </label>
+                            <div> &nbsp;{ String(this.state.offer.offerrorGroup) }</div>
+                        </div>
+                        <div className = "row">
+                            <label> Krótki opis: </label>
+                            <div> &nbsp;{ String(this.state.offer.description) }</div>
+                        </div>
+                        <div className = "row">
+                            <label> Opcja: </label>
+                            <div> &nbsp;{ String(this.state.offer.optionNeedOffer) }</div>
+                        </div>
+                        <div className = "row">
+                            <label> Kategoria: </label>
+                            <div> &nbsp;{ String(this.state.offer.offerCategory) }</div>
+                        </div>
+                        <div className = "row">
+                            <label> Obszar: </label>
+                            <div> &nbsp;{ String(this.state.offer.offerArea) }</div>
+                        </div>
+                        <div className = "row">
+                            <label> Dlaczego to robisz?: </label>
+                            <div> &nbsp;{ String(this.state.offer.offerReason) }</div>
+                        </div>
+
+
+
                     </div>
 
                 </div>
