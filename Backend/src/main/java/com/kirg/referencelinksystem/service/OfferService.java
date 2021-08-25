@@ -2,8 +2,10 @@ package com.kirg.referencelinksystem.service;
 
 import com.kirg.referencelinksystem.data.OfferRepository;
 import com.kirg.referencelinksystem.entity.Offer;
+import com.kirg.referencelinksystem.entity.Product;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,4 +37,6 @@ public class OfferService {
     public List<Offer> findAll() {
         return offerRepository.findAll();
     }
+
+
 }

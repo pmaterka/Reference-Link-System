@@ -1,4 +1,4 @@
-package com.kirg.referencelinksystem.security;
+package com.kirg.referencelinksystem.entity;
 
 
 import com.kirg.referencelinksystem.entity.UserWithHeart;

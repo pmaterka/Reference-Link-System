@@ -1,7 +1,5 @@
 package com.kirg.referencelinksystem.entity;
 
-import com.kirg.referencelinksystem.entity.notUsedCurrently.Brand;
-
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -25,8 +23,30 @@ public class Product {
 
     @NotNull
     @Min(value = 0, message = "The product price must not be less than zero.")
-    private BigDecimal price;
+    private BigDecimal realPrice;
 
+    @NotNull
+    @Min(value = 0, message = "The product price must not be less than zero.")
+    private BigDecimal offeredPrice;
+
+    //potrzebne do weryfikacji przez admina
+    private boolean approvedByAmin = false;
+
+    public boolean isApprovedByAmin() {
+        return approvedByAmin;
+    }
+
+    public void setApprovedByAmin(boolean approvedByAmin) {
+        this.approvedByAmin = approvedByAmin;
+    }
+
+    public BigDecimal getOfferedPrice() {
+        return offeredPrice;
+    }
+
+    public void setOfferedPrice(BigDecimal offeredPrice) {
+        this.offeredPrice = offeredPrice;
+    }
 
     public Long getId() {
         return id;
@@ -56,12 +76,12 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public BigDecimal getRealPrice() {
+        return realPrice;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setRealPrice(BigDecimal price) {
+        this.realPrice = price;
     }
 
 

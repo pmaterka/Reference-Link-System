@@ -1,11 +1,14 @@
 package com.kirg.referencelinksystem.controller;
 
 import com.kirg.referencelinksystem.entity.Offer;
+import com.kirg.referencelinksystem.entity.Product;
 import com.kirg.referencelinksystem.service.OfferService;
+import com.kirg.referencelinksystem.service.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,9 +18,11 @@ import java.util.Optional;
 public class OfferController {
 
     private OfferService offerService;
+    private ProductService productService;
 
-    public OfferController(OfferService offerService) {
+    public OfferController(OfferService offerService, ProductService productService) {
         this.offerService = offerService;
+        this.productService = productService;
     }
 
     @GetMapping
@@ -56,4 +61,6 @@ public class OfferController {
     public void deleteById(@PathVariable Long id) {
         offerService.deleteById(id);
     }
+
+
 }

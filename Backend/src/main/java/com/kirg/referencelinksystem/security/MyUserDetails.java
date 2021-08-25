@@ -1,5 +1,6 @@
 package com.kirg.referencelinksystem.security;
 
+import com.kirg.referencelinksystem.entity.ApplicationUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,20 +15,20 @@ public class MyUserDetails implements UserDetails {
     private String userName;
     private String password;
     private boolean active;
-    private List<GrantedAuthority> authorities;
+   // private List<GrantedAuthority> authorities;
 
     public MyUserDetails(ApplicationUser applicationUser) {
         this.userName = applicationUser.getUserName();
         this.password = applicationUser.getPassword();
         this.active = applicationUser.isActive();
-        this.authorities = Arrays.stream(applicationUser.getRoles().split(","))
+       /* this.authorities = Arrays.stream(applicationUser.getRoles().split(","))
                 .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()); */
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+        return null;
     }
 
     @Override

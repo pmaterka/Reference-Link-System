@@ -32,14 +32,12 @@ public class Offer {
 
     private OfferReason offerReason;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Product> productList;
-
 
     public Long getId() {
         return id;
     }
-
 
     public OfferrorGroup getOfferrorGroup() {
         return offerrorGroup;

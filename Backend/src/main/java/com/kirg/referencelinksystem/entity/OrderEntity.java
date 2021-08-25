@@ -20,9 +20,6 @@ public class OrderEntity {
    @NotNull
     private BigDecimal grandTotal;
 
-    //trzeba dodać czas zamówienia
-
-
     private LocalDate dateOfOrder = LocalDate.now();
 
     @OneToOne
@@ -35,6 +32,7 @@ public class OrderEntity {
 
     @OneToMany
     private List<Offer> offers;
+
 
     public Long getId() {
         return id;

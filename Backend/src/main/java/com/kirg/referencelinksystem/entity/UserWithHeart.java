@@ -1,13 +1,12 @@
 package com.kirg.referencelinksystem.entity;
 
-import com.kirg.referencelinksystem.enums.offerEnums.*;
 import com.kirg.referencelinksystem.enums.userEnums.LifeQuality;
 import com.kirg.referencelinksystem.enums.userEnums.UserSituation;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
 
 @Entity
@@ -37,17 +36,17 @@ public class UserWithHeart {
     @OneToOne
     private Address address;
 
-    @OneToOne
-    private Offer whatDoIOffer;
+    @OneToMany
+    private List<Offer> whatDoIOffer;
 
-    private int heartPoints=0;
+    private BigDecimal heartPoints=BigDecimal.ZERO;
 
 
-    public int getHeartPoints() {
+    public BigDecimal getHeartPoints() {
         return heartPoints;
     }
 
-    public void setHeartPoints(int heartPoints) {
+    public void setHeartPoints(BigDecimal heartPoints) {
         this.heartPoints = heartPoints;
     }
 
@@ -107,11 +106,13 @@ public class UserWithHeart {
         this.address = address;
     }
 
-    public Offer getWhatDoIOffer() {
+    public List<Offer> getWhatDoIOffer() {
         return whatDoIOffer;
     }
 
-    public void setWhatDoIOffer(Offer whatDoIOffer) {
+    public void setWhatDoIOffer(List<Offer> whatDoIOffer) {
         this.whatDoIOffer = whatDoIOffer;
     }
+
+
 }
