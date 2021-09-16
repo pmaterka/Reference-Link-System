@@ -36,12 +36,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager()))
                 .addFilterAfter(new JwtTokenVerifier(),JwtUsernameAndPasswordAuthenticationFilter.class)
                 .authorizeRequests()
-               .antMatchers("/", "/applicationUser")
+               .antMatchers("/", "/applicationUser", "/login")
                 .permitAll()
                 .antMatchers("/**")
                 .hasRole("USER")
                 .anyRequest()
-                .authenticated();
+                .authenticated()
+.and()
+.formLogin()
+//.loginPage("/login.html")
+.loginProcessingUrl("/perform_login")
+.defaultSuccessUrl("/");
 
     }
 

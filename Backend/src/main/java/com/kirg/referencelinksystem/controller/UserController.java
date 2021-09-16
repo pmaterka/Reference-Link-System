@@ -2,10 +2,13 @@ package com.kirg.referencelinksystem.controller;
 
 import com.kirg.referencelinksystem.entity.ApplicationUser;
 import com.kirg.referencelinksystem.service.UserService;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/applicationUser")
 public class UserController {
@@ -24,4 +27,6 @@ public class UserController {
     public void deleteById(@PathVariable Long id) {
         userService.deleteById(id);
     }
+
+
 }
